@@ -33,9 +33,9 @@ public class DriveTrainSubsystem extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
     // Make sure that you declare this subsystem in RobotContainer.java
-    double leftStick = driveController.getRawAxis(1);
+    double leftStick = -driveController.getRawAxis(1);
     talonDriveLeft.set(ControlMode.PercentOutput, leftStick);
-    double rightStick = -driveController.getRawAxis(5); // make forward stick positive
+    double rightStick = driveController.getRawAxis(5); // make forward stick positive
     talonDriveRight.set(ControlMode.PercentOutput, rightStick);
     if (Robot.count % 250 == -1) { // -1 will disable the log, set to 0 to enable log
       logf("Drive stick left:%.2f right:%.2f\n", leftStick, rightStick);
